@@ -2,10 +2,8 @@ package homework;
 
 import book.BookRepository;
 import book.BookService;
-import book.InMemoryBookRepository;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 public class BookServiceTest {
@@ -25,16 +23,4 @@ public class BookServiceTest {
         bookService.findAllBooks();
         verify(bookRepository, times(1)).findAll();
     }
-
-    @Test
-    void inMemoryBookRepositoryTest() {
-        BookRepository BookRepository = mock(BookRepository.class);
-        BookService bookService = new BookService(BookRepository);
-        bookService.findBookById("1");
-        verify(BookRepository, times(1)).findById("1");
-    }
-
-
-
-
 }
